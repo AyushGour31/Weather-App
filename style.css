@@ -1,45 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body {
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f2f2f2;
+/* Reset styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.header{
-    background-color: #4f5f50;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
 }
 
-.logo{
-    margin-left: 2rem;
-    color: #e7e7e7;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-.logo span{
-    font-size: 1rem;
-    font-weight: normal;
+
+/* Header styles */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.logo span {
+    color: #ffcc00;
 }
 
 .search-bar {
-    margin-right: 2rem;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .options {
-    min-width: 200px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
     font-size: 16px;
     outline: none;
-    /* Remove the outline on focus */
 }
 
 .search-btn {
@@ -51,30 +60,49 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    /* Smooth transition on hover */
 }
 
 .search-btn:hover {
     background-color: #45a049;
-    /* Darker shade of green on hover */
 }
 
 .countryName {
     text-align: center;
     margin-top: 20px;
     font-size: 24px;
-    color: #333;
-    font-weight: bold;
 }
 
-/* Additional Cool Styles */
-.options {
-    width: 70%;
-    background-color: #fff;
-    /* White background for the dropdown */
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .options {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-btn {
+        border-radius: 5px;
+        width: 100%;
+    }
 }
 
-.search-btn {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Add a subtle shadow to the
-  
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    .search-btn {
+        padding: 8px 16px;
+    }
+}
