@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather-App</title>
-    <link rel="shortcut icon" href="../images/temperature.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/temperature.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header class="header container">
       <h1 class="logo">Weather.<span>App</span></h1>
       <div class="search-bar">
-        <select name="search-bar" class="options" id="input"></select>
+        <select name="search-bar" class="options" id="input">
+          <option value="hello" selected></option>
+        </select>
+        <button class="search-btn autofill-btn" id="autofill-button">Auto Fill</button>
         <button class="search-btn" id="search-button">Search</button>
       </div>
     </header>

@@ -1,14 +1,35 @@
 const button = document.getElementById("search-button");
 const input = document.getElementById("input");
-// const input = document.getElementById("city-input");
 const options = document.querySelector(".options");
+const autofill = document.querySelector(".autofill-btn");
 
-const getData = async (cityName) => {
+const getData = async (lat, long) => {
   const promise = await fetch(
-    `https://api.weatherapi.com/v1/current.json?key=5787db3dc5654bfdb67175726240903&q=${cityName}&aqi=yes`
+    `https://api.weatherapi.com/v1/current.json?key=5787db3dc5654bfdb67175726240903&q=${lat},${long}&aqi=yes`
   );
   return await promise.json();
 };
+
+autofill.addEventListener("click", async () => {
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const result = await getData(
+        position.coords.latitude, 
+        position.coords.longitude
+      );
+      
+      input.options[input.selectedIndex].text = `${result.location.country}, ${result.location.region}, ${result.location.name}`;
+      
+      document.querySelector('.countryName').innerHTML = `
+      <h2>${result.location.name +", "+ result.location.region +", "+ result.location.country}</h2>
+      <h3>${result.location.localtime}</h3>
+      <h4>Temperature in celsius = ${result.current.temp_c}</h4>
+      <h4>Temperature in fahrenheit = ${result.current.temp_f}</h4>
+    `
+    },
+    err => console.log(err)
+  );
+});
 
 const fetchData = async () => {
   const value = input.value;
